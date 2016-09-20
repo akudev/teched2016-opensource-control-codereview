@@ -23,6 +23,7 @@ sap.ui.define(['jquery.sap.global',
 		dependencies: ['sap.ui.core'],
 		controls: [			
 			'sap.ase.ui5.controls.Map',
+			'sap.ase.ui5.controls.MapMarkers',
 			'sap.ase.ui5.controls.SimpleMap',
 			'sap.ase.ui5.controls.BasicMap'
 		],

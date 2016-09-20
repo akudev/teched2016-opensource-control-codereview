@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Step 4 - Full Map - sap.ase.ui5.controls</title>
+
+<script id="sap-ui-bootstrap"
+	src="../../../../../resources/sap-ui-core.js"
+	data-sap-ui-libs="sap.m, sap.ase.ui5.controls"
+	data-sap-ui-theme="sap_bluecrystal">
+
+</script>
+
+<script>
+	var oMap = new sap.ase.ui5.controls.MapMarkers({
+		zoom: 3,
+		width: "100%",
+		height: "100%",
+		center: new sap.ase.ui5.controls.MapPOI({
+			"lat": 49.2927,
+			"long": 8.6424,
+		}),
+		markers : [
+			new sap.ase.ui5.controls.MapPOI({
+				"lat": 49.2927,
+				"long": 8.6424,
+				"tooltip": "SAP Headquarters",
+				"icon" : "./qunit/sapLogo.png"
+			}),
+			new sap.ase.ui5.controls.MapPOI({
+				"lat": 36.1222,
+				"long": -115.1695,
+				"tooltip": "SAP TechEd Las Vegas",
+				"icon" : "./sapteched.gif"
+			}),
+			new sap.ase.ui5.controls.MapPOI({
+				"lat": 13.0616,
+				"long": 77.4745,
+				"tooltip": "SAP TechEd Bangalore",
+				"icon" : "./sapteched.gif"
+			}),
+			new sap.ase.ui5.controls.MapPOI({
+				"lat": 41.3544368,
+				"long": 2.13603,
+				"tooltip": "SAP TechEd Barcelona",
+				"icon" : "./sapteched.gif"
+			})
+		]
+	});
+	oMap.placeAt('content');
+</script>
+
+</head>
+<body id="content" class="sapUiBody">
+</body>
+</html>
