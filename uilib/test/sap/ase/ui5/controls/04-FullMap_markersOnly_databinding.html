@@ -14,12 +14,32 @@
 </script>
 
 <script>
+	// data model with points to display
 	var oModel = new sap.ui.model.json.JSONModel({
-		zoom: 1
+		zoom: 1,
+		markers: [
+			{
+				"lat": 49.2927,
+				"long": 8.6424
+			},
+			{
+				"lat": 36.1222,
+				"long": -115.1695
+			},
+			{
+				"lat": 13.0616,
+				"long": 77.4745
+			},
+			{
+				"lat": 41.3544368,
+				"long": 2.13603
+			},
+		]
 	});
 	sap.ui.getCore().setModel(oModel);
 	
 	
+	// create a Map and bind it to the above data
 	var oMap = new sap.ase.ui5.controls.MapMarkers({
 		zoom: "{/zoom}",
 		width: "640px",
@@ -28,41 +48,26 @@
 			"lat": 49.2927,
 			"long": 8.6424,
 		}),
-		markers : [
-			new sap.ase.ui5.controls.MapPOI({
-				"lat": 49.2927,
-				"long": 8.6424,
-				"tooltip": "SAP Headquarters",
-				"icon" : "./qunit/sapLogo.png"
-			}),
-			new sap.ase.ui5.controls.MapPOI({
-				"lat": 36.1222,
-				"long": -115.1695,
-				"tooltip": "SAP TechEd Las Vegas",
-				"icon" : "./sapteched.gif"
-			}),
-			new sap.ase.ui5.controls.MapPOI({
-				"lat": 13.0616,
-				"long": 77.4745,
-				"tooltip": "SAP TechEd Bangalore",
-				"icon" : "./sapteched.gif"
-			}),
-			new sap.ase.ui5.controls.MapPOI({
-				"lat": 41.3544368,
-				"long": 2.13603,
-				"tooltip": "SAP TechEd Barcelona",
-				"icon" : "./sapteched.gif"
+		markers : {
+			path : "/markers",
+			template : new sap.ase.ui5.controls.MapPOI({
+				lat: "{lat}",
+				long: "{long}",
+				tooltip: "SAP Event",
+				icon: "./qunit/sapLogo.png"
 			})
-		]
+		}
 	});
 	oMap.placeAt('content');
 	
 	
+	// bind a Slider to the "zoom" value in the JSONModel
 	new sap.m.Slider({
 		min:0,
 		max:16,
 		value:"{/zoom}"
 	}).placeAt("content");
+	
 </script>
 
 </head>
