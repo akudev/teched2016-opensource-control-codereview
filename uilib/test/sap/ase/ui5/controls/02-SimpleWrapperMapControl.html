@@ -15,10 +15,16 @@
 
 <script>
 	var oMap = new sap.ase.ui5.controls.SimpleMap({
-		width: "100%",
-		height: "100%"
+		width: "640px",
+		height: "324px"
 	});
-	oMap.placeAt('content');
+	
+	var app = new sap.m.App({
+		pages: new sap.m.Page({
+			title: "My Map Page",
+			content: oMap
+		})
+	});
 </script>
 
 </head>
