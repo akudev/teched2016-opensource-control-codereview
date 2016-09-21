@@ -92,8 +92,11 @@ sap.ui.define(['jquery.sap.global', './library', 'sap/ui/core/Control', 'sap/ui/
 						zoom: this.getZoom()
 					})
 				});
-
 			}
+			
+			this._map.getView().on("change:resolution", function(oEvent){
+				this.setZoom(this._map.getView().getZoom(), false, true);
+			}, this);
 		}
 	});
 

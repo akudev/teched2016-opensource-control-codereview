@@ -56,14 +56,6 @@ sap.ui.define(['jquery.sap.global', './library', 'sap/ui/core/Control', 'sap/ui/
 			);
 		},
 
-		getFocusDomRef : function(){
-			return this.getDomRef("map");
-		},
-
-		onclick : function(){
-			this.focus();
-		},
-
 		setZoom : function(iZoom){
 			this.setProperty("zoom", iZoom, true);
 			if (this._map) {
@@ -127,7 +119,6 @@ sap.ui.define(['jquery.sap.global', './library', 'sap/ui/core/Control', 'sap/ui/
 				oRm.writeElementData(aMarkers[i]);
 				oRm.addClass("sapAseUI5CtrlMapMarker");
 				oRm.writeClasses();
-				oRm.writeAttribute("tabindex", "0");
 				if (sTooltip) {
 					oRm.writeAttributeEscaped("title", sTooltip);
 				}

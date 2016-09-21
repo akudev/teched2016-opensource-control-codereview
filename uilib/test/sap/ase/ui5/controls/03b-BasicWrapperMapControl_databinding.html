@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Step 3 - BasicMap - sap.ase.ui5.controls</title>
+
+<script id="sap-ui-bootstrap"
+	src="../../../../../resources/sap-ui-core.js"
+	data-sap-ui-libs="sap.ase.ui5.controls,sap.m"
+	data-sap-ui-theme="sap_bluecrystal">
+
+</script>
+
+<script>
+	// data model with points to display
+	var oModel = new sap.ui.model.json.JSONModel({
+		zoom: 1,
+		lat: 49.2927,
+		long: 8.6424
+	});
+	sap.ui.getCore().setModel(oModel);
+	
+	
+	var oMap = new sap.ase.ui5.controls.BasicMap({
+		width: "640px",
+		height: "324px",
+		zoom: "{/zoom}",
+		center : new sap.ase.ui5.controls.MapPOI({
+			lat: "{lat}",
+			long: "{long}"
+		})
+	});
+	oMap.placeAt('content');
+	
+	
+	// bind a Slider to the "zoom" value in the JSONModel
+	new sap.m.Slider({
+		min:0,
+		max:16,
+		value:"{/zoom}"
+	}).placeAt("content");
+
+</script>
+
+</head>
+<body id="content" class="sapUiBody">
+</body>
+</html>
