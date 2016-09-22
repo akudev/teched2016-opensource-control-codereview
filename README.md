@@ -1,4 +1,4 @@
-# UX724 How to Integrate Open Source JavaScript Libraries
+# UX724 How to Integrate Open Source JavaScript Libraries to SAPUI5 Applications
 
 This repository contains the material of the code review for SAP TechEd 2016. Hope to see you @TechEd :-) and have fun with the code afterwards.
 
